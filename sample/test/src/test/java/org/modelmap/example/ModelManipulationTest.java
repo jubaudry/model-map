@@ -3,19 +3,16 @@
  */
 package org.modelmap.example;
 
-import java.util.*;
-import java.util.Map.Entry;
+import java.util.Collections;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.junit.Test;
-import org.modelmap.core.FieldId;
 import org.modelmap.core.FieldModel;
 import org.modelmap.sample.field.SampleFieldId;
 import org.modelmap.sample.model.*;
-import org.modelmap.sample2.model.*;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ModelManipulationTest {
 
@@ -30,29 +27,33 @@ public class ModelManipulationTest {
     }
 
     @Test
-    public void diff() {
-        FieldModel sampleV1 = SampleModels.wrapper();
-        FieldModel samplev2 = SampleModels.wrapper();
-
-        samplev2.set(SampleFieldId.FAVORITE_SITE_NAME_1, "LesFurets.com");
-        samplev2.set(SampleFieldId.FAVORITE_SITE_URL_1, "www.lesfurets.com");
-        samplev2.set(SampleFieldId.EMAILS_PREFERENCES, Collections.emptyList());
-
-        String diff = sampleV1.parallelStream()
-                        .filter(e -> !Objects.equals(e.getValue(), samplev2.get(e.getKey())))
-                        .map(e -> e.getKey() + ";" + sampleV1.get(e.getKey()) + ";" + samplev2.get(e.getKey()) + "\n")
+    public void json() throws JsonProcessingException {
+        SampleModel sample = SampleModels.sample();
+        String jsonValues = new SampleModelWrapper(sample).parallelStream()
+                        .map(e -> "  \"" + e.getKey() + "=" + String.valueOf(e.getValue()) + "\"\n")
                         .reduce("", String::concat);
+        String json = "{\n" + jsonValues + "\n}";
 
-        System.out.println(diff);
+        System.out.println(json);
     }
 
     @Test
-    public void json() throws JsonProcessingException {
-        Sample2Model sample = Sample2Models.sample();
+    public void diff() {
+        FieldModel sampleV1 = SampleModels.wrapper();
+        FieldModel sampleV2 = SampleModels.wrapper();
 
-        Map<FieldId, String> values = new Sample2ModelWrapper(sample).stream()
-                        .collect(Collectors.toMap(Entry::getKey, e -> String.valueOf(e.getValue())));
+        sampleV1.set(SampleFieldId.FAVORITE_SITE_NAME_3, null);
+        sampleV1.set(SampleFieldId.FAVORITE_SITE_URL_3, null);
 
-        System.out.println(new ObjectMapper().writeValueAsString(values));
+        sampleV2.set(SampleFieldId.FAVORITE_SITE_NAME_1, "LesFurets.com");
+        sampleV2.set(SampleFieldId.FAVORITE_SITE_URL_1, "www.lesfurets.com");
+        sampleV2.set(SampleFieldId.EMAILS_PREFERENCES, Collections.emptyList());
+
+        Stream.concat(sampleV1.stream().map(ValueDifference::left), sampleV2.stream().map(ValueDifference::right))
+                        .collect(Collectors.toMap(diff -> diff.fieldId, diff -> diff, ValueDifference::merge))
+                        .values().stream()
+                        .filter(diff -> !diff.isEquals())
+                        .forEach(System.out::println);
     }
+
 }
