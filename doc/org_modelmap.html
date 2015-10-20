@@ -30,27 +30,26 @@
       <div class="slides">
 
         <section>
+          <img class="logo herve-francois" width="45%" src="png/lf_com_herve_francois.png">
           <h1>DomainModel.stream()</h1>
-          <h2><a href="http://soft-shake.ch/2015/en/" target="_blank"><img class="logo" width="50%" src="png/logo_softshake.png"></a></h2>
-          <p>Gilles  DI GUGLIELMO - Julien BAUDRY</p>
           <p>
-            <a href="https://github.com/lesfurets">https://github.com/jubaudry/model-map</a>
+            <a href="https://github.com/lesfurets">https://github.com/lesfurets/model-map</a>
           </p>
         </section>
 
         <section>
           <section>
-            <h2>Speakers</h2>
+            <h2>Welcome to the Furets !</h2>
           </section>
           <section>
             <div class="fragment">
               <h2>@gdigugli – Gilles Di Guglielmo</h2>
               <ul>
-                <li>Java Developer since 1999</li>
+                <li>Designer of sweet cooked software since 1999</li>
                 <li>Software Architect at LesFurets.com</li>
               </ul>
             </div>
-            <p></p>
+            <br/><br/>
             <div class="fragment">
               <h2>@jubaudry – Julien Baudry</h2>
               <ul>
@@ -60,54 +59,57 @@
             </div>
           </section>
           <section>
-            <img class="logo" width="50%" src="png/logo_lesfurets.png">
+            <img width="70%" src="png/lf_com_home.png">
+          </section>
+          <section>
+            <img width="70%" src="png/lf_com_mrh_journey.png">
+          </section>
+          <section>
+            <img width="50%" src="png/logo_lesfurets.png">
             <p></p>
             <ul class="fragment">
-              <li>22 Developers</li>
-              <li>2 Devops</li>
-              <li>3 Architect</li>
+              <li>1 website, 5 Insurance Products : Car, Health, Home, Bike, Loan</li>
+              <li class="emptyline">1 codebase, 450k lines of code, 60k unit tests, 150 selenium tests</li>
+        
+              <li>22 Developers, 2 DevOps, 3 Architects</li>
+              <li class="emptyline">10+ production servers<br/></li>
+              
+              <li>1 release per day</li>
+              <li class="emptyline">7 years of code history<br/></li>
+           
+              <li>2.5M quotes/year, 31% of market share</li>
             </ul>
           </section>
           <section>
-            <img class="logo" width="50%" src="png/logo_lesfurets.png">
-            <p></p>
-            <ul class="fragment">
-              <li>1 website, 6 aggregators</li>
-              <li>450k line of code, 58k unit tests</li>
-              <li>150 selenium tests</li>
-              <li>10+ servers</li>
-              <li>1 codebase</li>
-            </ul>
+            <h2>Domain Model, what do you mean ?</h2>
+            <img width="100%" src="png/lf_domain_model.png">
           </section>
         </section>
-
         <section>
           <section>
-            <h2>Architecture</h2>
-          </section>
-          <section>
-            <h2>What you have ...</h2>
-            <img class="fragment" data-transition="fade" width="100%" src="png/org_modelmap_archi_1.png">
+            <h2>Moving the architecture</h2>
           </section>
           <section>
             <h2>Architecture Buzz</h2>
-            <div class="fragment columns">
-              <ul class="column-left-50">
-                <li></li>
+            <div class="fragment container-grid-2">
+              <ul>
                 <li>Copy on write</li>
                 <li>Immutable data</li>
-                <li>noSQL</li>
+                <li>NoSQL</li>
                 <li>Clustered Data Base</li>
-                <li>CQRS</li>
                 <li>Data streaming</li>
                 <li>Micro batching</li>
                 <li>Lambda architecture</li>
                 <li>Data on demand</li>
               </ul>
-              <div class="column-right-50">
+              <div>
                 <img data-transition="fade" width="100%" src="png/buzz.png">
               </div>
             </div>
+          </section>
+          <section>
+            <h2>What you have ...</h2>
+            <img class="fragment" data-transition="fade" width="100%" src="png/org_modelmap_archi_1.png">
           </section>
           <section>
             <h2>What you want …</h2>
@@ -119,56 +121,43 @@
           </section>
           <section>
             <h2>Front app evolutions</h2>
-            <div class="fragment columns">
-              <ul class="column-left-50">
-                <li></li>
-                <li>Your domain model is cloned using two different languages.</li>
-                <li></li>
-                <li>Governance of the domain model and change requests are difficult to implement.</li>
-                <li></li>
-                <li>Development owners of the server and front application are different.</li>
-                <li></li>
-                <li>UI Spaghetti code.</li>
+            <div class="fragment container-grid-2">
+              <ul>
+                <li class="emptyline">Your domain model is cloned using two different languages.<br/></li>
+                <li class="emptyline">Governance of the domain model and change requests are difficult to implement.<br/></li>
+                <li class="emptyline">Development owners of the server and front application are different.<br/></li>
+                <li class="emptyline">UI Spaghetti code.</li>
               </ul>
-              <div class="column-right-50">
+              <div>
                 <img data-transition="fade" width="100%" src="png/org_modelmap_archi_evol_2.png">
               </div>
             </div>
           </section>
           <section>
             <h2>Front storage evolutions</h2>
-            <div class="fragment columns">
-              <ul class="column-left-50">
-                <li></li>
-                <li>Mapping entities in Cassandra is painful.</li>
-                <li></li>
-                <li>Don’t migrate your Entity/Relation model as it!</li>
-                <li></li>
-                <li>You should probably flat your domain model to fit a single raw.</li>
-                <li></li>
-                <li>Infinite storage.</li>
+            <div class="fragment container-grid-2">
+              <ul>
+                <li class="emptyline">Mapping entities in Cassandra is painful.</li>
+                <li class="emptyline">Don’t migrate your Entity/Relation model using cut &amp; paste!</li>
+                <li class="emptyline">You should probably flat your domain model to fit a single row.</li>
+                <li class="emptyline">Infinite storage.</li>
               </ul>
-              <div class="column-right-50">
+              <div>
                 <img data-transition="fade" width="100%" src="png/org_modelmap_archi_evol_3.png">
               </div>
             </div>
           </section>
           <section>
             <h2>BackOffice evolutions</h2>
-            <div class="fragment columns">
-              <ul class="column-left-35">
-                <li></li>
-                <li>A lot of rework to implement.</li>
-                <li></li>
-                <li>Spark and ML-lib love data vectors.</li>
-                <li></li>
-                <li>Spark read raw data, aggregate, write them in microbatches.</li>
-                <li></li>
-                <li>No more (very long) nightly batches.</li>
-                <li></li>
-                <li>Full history is available for custom computations.</li>
+            <div class="fragment container-grid-2">
+              <ul class="container-grid-40p">
+                <li class="emptyline">A lot of rework to implement.</li>
+                <li class="emptyline">Spark and ML-lib love data vectors.</li>
+                <li class="emptyline">Spark read raw data, aggregate, write them in microbatches.</li>
+                <li class="emptyline">No more (very long) nightly batches.</li>
+                <li class="emptyline">Full history is available for custom computations.</li>
               </ul>
-              <div class="column-right-65">
+              <div class="container-grid-60p">
                 <img data-transition="fade" width="100%" src="png/org_modelmap_archi_evol_4.png">
               </div>
             </div>
@@ -182,172 +171,161 @@
             <img data-transition="fade" width="100%" src="png/org_modelmap_casper_2.png">
           </section>
         </section>
+
         <section>
           <section>
-            <h2>A short demo of the sample application</h2>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>Domain Model Decoration</h2>
+            <h2>A bit of decoration</h2>
           </section>
           <section>
             <h2>Let's start with this model...</h2>
             <img width="100%" src="png/org_modelmap_1.png">
           </section>
           <section>
-            <h2>... but as key-value model</h2>
+            <h2>... and transform it to a key-value model</h2>
             <img width="100%" src="png/org_modelmap_2.png">
+          </section>
+          <section data-transition="fade">
+            <h2>User model</h2>
+            <img width="100%" src="png/org_modelmap_user_mapping_5.png">
+          </section>
+          <section data-transition="fade">
+            <h2>Account model</h2>
+            <img width="100%" src="png/org_modelmap_account_mapping_5.png">
           </section>
 
           <section>
-            <h2>Step 1 : one FieldId Enumeration</h2>
-            <ul class="fragment">
-              <li>one literal for each class property/key</li>
-              <li>position : used when collections are denormalized (optional)</li>
-              <li>tag : used to add meta-information (optionnal)</li>
+            <h2>From domain model to key-value model</h2>
+            <p></p> 
+            <ul>
+              <li class="fragment emptyline">Step 1 : create one Enumeration with all keys</li>
+              <li class="fragment emptyline">Step 2 : annotate your domain model</li>
+              <li class="fragment emptyline">Step 3 : generate the key value model</li>
             </ul>
-            <p></p>
-            <img class="fragment" width="60%" src="png/org_modelmap_migration_step_1_1.png">
           </section>
           <section>
-            <h2>Step 1 : one FieldId Enumeration</h2>
-            <img class="fragment" width="100%" src="png/org_modelmap_migration_step_1_2.png">
+            <h2>Let's see the domain model &amp; the key-value model</h2>
+          </section>
+
+          <section>
+            <h2>Step 1 : one Enumeration with all keys</h2>
+            <div class="fragment">
+              <ul>
+                <li>one literal for each key</li>
+                <li>position (optional) : used when collections are denormalized </li>
+                <li class="emptyline">tag (optional) : used to add meta-information</li>
+              </ul>
+              <img class=width="75%" src="png/org_modelmap_migration_step_1_1.png">
+            </div>
           </section>
           <section>
-            <h2>Step 2 : one Repeatable Annotation </h2>
+            <h2>Step 2 : one Annotation to annotate the domain</h2>
             <ul class="fragment">
               <li>one method to retrieve the FieldId</li>
-              <li>one method to retrieve the Contraint</li>
+              <li class="emptyline">one method to retrieve the Constraint</li>
             </ul>
-            <img class="fragment" width="100%" src="png/org_modelmap_migration_step_2.png">
+            <img class="fragment" width="75%" src="png/org_modelmap_migration_step_2.png">
           </section> 
           <section>
             <h2>Step 3 : annotate your domain model</h2>
             <ul class="fragment">
               <li>attribute, getter or setter can be annotated</li>
-              <li>getter and setter must follow Java naming conventions</li>
+              <li class="emptyline">getter and setter must follow Java naming conventions</li>
             </ul>
             <img class="fragment" width="100%" src="png/org_modelmap_migration_step_3.png">
           </section>
           <section>
             <h2>Step 4 : generate the key value model</h2>
-            <ul class="fragment">
-             
-            </ul>
             <img class="fragment" width="100%" src="png/org_modelmap_migration_step_4.png">
           </section>
-
 
           <section>
             <h2>User model</h2>
           </section>
           <section data-transition="fade">
-            <h2>User model (1/5)</h2>
+            <h2>User model</h2>
             <img width="100%" src="png/org_modelmap_user_mapping_1.png">
           </section>
           <section data-transition="fade">
-            <h2>User model (2/5)</h2>
+            <h2>User model</h2>
             <img width="100%" src="png/org_modelmap_user_mapping_2.png">
           </section>
           <section data-transition="fade">
-            <h2>User model (3/5)</h2>
-            <img width="100%" src="png/org_modelmap_user_mapping_3.png">
-          </section>
-          <section data-transition="fade">
-            <h2>User model (4/5)</h2>
+            <h2>User model</h2>
             <img width="100%" src="png/org_modelmap_user_mapping_4.png">
           </section>
           <section data-transition="fade">
-            <h2>User model (5/5)</h2>
+            <h2>User model</h2>
             <img width="100%" src="png/org_modelmap_user_mapping_5.png">
-          </section>
-          <section>
-            <h2>User model coding</h2>
-          </section>
-          <section data-transition="fade">
-            <h2>Using Java bean</h2>
-            <img width="100%" src="png/org_modelmap_user_code_sample_1.png">
-          </section>
-          <section data-transition="fade">
-            <h2>Using generated key-value model</h2>
-            <img width="100%" src="png/org_modelmap_user_code_sample_2.png">
           </section>
           <section>
             <h2>Account model</h2>
           </section>
           <section data-transition="fade">
-            <h2>Account model (1/6)</h2>
+            <h2>Account model</h2>
             <img width="100%" src="png/org_modelmap_account_mapping_0.png">
           </section>
           <section data-transition="fade">
-            <h2>Account model (2/6)</h2>
+            <h2>Account model</h2>
             <img width="100%" src="png/org_modelmap_account_mapping_1.png">
           </section>
           <section data-transition="fade">
-            <h2>Account model (3/6)</h2>
+            <h2>Account model</h2>
             <img width="100%" src="png/org_modelmap_account_mapping_2.png">
           </section>
           <section data-transition="fade">
-            <h2>Account model (4/6)</h2>
+            <h2>Account model</h2>
             <img width="100%" src="png/org_modelmap_account_mapping_3.png">
           </section>
           <section data-transition="fade">
-            <h2>Account model (5/6)</h2>
+            <h2>Account model</h2>
             <img width="100%" src="png/org_modelmap_account_mapping_4.png">
           </section>
           <section data-transition="fade">
-            <h2>Account model (6/6)</h2>
+            <h2>Account model</h2>
             <img width="100%" src="png/org_modelmap_account_mapping_5.png">
           </section>
+          
           <section>
-            <h2>Account model coding</h2>
+            <h2>Let's see the domain model &amp; the key-value model</h2>
           </section>
-          <section data-transition="fade">
-            <h2>Using Java bean (1/2)</h2>
-            <img width="100%" src="png/org_modelmap_account_code_sample_1_1.png">
-          </section>
-          <section data-transition="fade">
-            <h2>Using Java bean (2/2)</h2>
-            <img width="100%" src="png/org_modelmap_account_code_sample_1_2.png">
-          </section>
-          <section data-transition="fade">
-            <h2>Using generated key-value model</h2>
-            <img width="100%" src="png/org_modelmap_account_code_sample_2.png">
-          </section>
+        </section>
 
+        <section>
           <section>
+            <h2>... Just one little issue.</h2>
+          </section>
+          <section data-transition="fade">
             <h2>Account &amp; User ID</h2>
-          </section>
-          <section data-transition="fade">
-            <h2>Account &amp; User ID (1/2)</h2>
             <img width="100%" src="png/org_modelmap_userid_mapping.png">
+            <blockquote>g().getId()</blockquote>
           </section>
           <section data-transition="fade">
-            <h2>Account &amp; User ID (2/2)</h2>
+            <h2>Account &amp; User ID</h2>
             <img width="100%" src="png/org_modelmap_accountid_mapping.png">
+            <blockquote>getAccount().getId()</blockquote>
           </section>
           <section>
-            <h2>Many FieldId for a single property</h2>
+            <h2>Many key for a single attribute</h2>
             <div class="fragment">
               <ul>
+                <li>Each key must have a unique path to retrieve its value</li>
                 <li>How to retrieve the right value for each field?</li>
-                <li>getAccount().getId() or getUser().getId()?</li>
+                <li class="emptyline">getAccount().getId()? getUser().getId()?</li>
               </ul>
-              <img width="100%" src="png/org_modelmap_userid_accountid_code_1.png">
+              <img width="80%" src="png/org_modelmap_userid_accountid_code_1.png">
             </div>
           </section>  
           <section>
-            <h2>Create 2 constraint</h2>
+            <h2>Solution : constraints</h2>
             <p>One for each field, specify which getter to use</p>
-            <img class="fragment" width="100%" src="png/org_modelmap_userid_accountid_code_2.png">
+            <img class="fragment" width="80%" src="png/org_modelmap_userid_accountid_code_2.png">
           </section>  
           <section>
-            <h2>Add a contraint for each annotation</h2>
+            <h2>Add a constraint for each annotation</h2>
             <div class="fragment">
               <ul>
                 <li>the code generator only use the path with the specified getter</li>
-                <li>each field is now mapped correctly</li>
+                <li class="emptyline">each field is now mapped correctly</li>
               </ul>
               <img width="100%" src="png/org_modelmap_userid_accountid_code_3.png">
             </div>
@@ -356,51 +334,37 @@
 
         <section>
           <section>
-            <h2>Code Generation</h2>
+            <h2>Let the magic begin ...</h2>
           </section>
           <section>
-            <h2>Code generator implementation</h2>
+            <h2>Code generator under the hood</h2>
+            <p></p> 
             <ul class="fragment">
-              <li>Execution using a maven plugin</li>
+              <li>Execution is done using a maven plugin</li>
               <li>Annotated properties are processed using Java Reflection</li>
-              <li>Not implemented as a APT processor, due to some limitations</li>
+              <li>Generate handwritten style code, easy to read</li>
+              <li>Enable JIT optimisations by combining lambdas and enumerations</li>
+              <li>Lightweight pattern, designed for performance</li>
             </ul>
-            <p></p>
-            <img class="fragment" width="100%" src="png/org_modelmap_maven_codegen_1.png">
-          </section>
-          <section>
-            <h2>Execute the maven plugin</h2>
-            <img class="fragment" width="100%" src="png/org_modelmap_maven_codegen_2.png">
           </section>
           <section>
             <h2>Generation output (1/3)</h2>
-            <ul class="fragment">
-              <li>The generated model implements the FieldModel interface.</li>
-              <li></li>
-              <li>The 2 main methods are a getter and setter by FieldId.</li>
-            </ul>
-            <p></p>
-            <img class="fragment" src="png/org_modelmap_maven_codegen_3_1.png">
-          </section>
-           <section>
-            <h2>Generation output (1/3)</h2>
-            <p class="fragment">... and with some additional methods.</p>
-            <img class="fragment" src="png/org_modelmap_maven_codegen_3_2.png">
+            <img class="fragment" src="png/org_modelmap_maven_codegen_3.png">
           </section>
           <section>
             <h2>Generation output (2/3)</h2>
-            <p class="fragment">An Enumeration containing field, type, generics type (optionnal)</p>
-            <p></p>
-            <img class="fragment" width="60%" src="png/org_modelmap_maven_codegen_4_1.png">
-          </section>
-          <section>
-            <h2>Generation output (2/3)</h2>
-            <img class="fragment" width="100%" src="png/org_modelmap_maven_codegen_4_2.png">
+            <div class="fragment">
+              <p class="emptyline">An Enumeration containing metadate : type, generics type</p>
+              <p></p>
+              <img width="50%" src="png/org_modelmap_maven_codegen_4_1.png">
+            </div>
           </section>
           <section>
             <h2>Generation output (3/3)</h2>
-            <p class="fragment">a CSV containing each field, path, and value type</p>
-            <img class="fragment" width="100%" src="png/org_modelmap_maven_codegen_5.png">
+            <div class="fragment">
+              <p>a CSV containing each field, path, and value type</p>
+              <img width="100%" src="png/org_modelmap_maven_codegen_5.png">
+            </div>
           </section>
         </section>
 
@@ -410,41 +374,43 @@
           </section>
           <section>
             <h2>You can use Java 8 stream on your Domain Model !</h2>
-            <ul>
+            <ul class="fragment">
               <li>FieldModel#stream() : a stream of key/value pair (FieldId/Object)</li>
               <li>FieldModel#parallelStream() : parallel stream and better performance</li>
-              <li>Easy use a filter/map/reduce operations on a domain model</li>
+              <li class="emptyline">Easy use a filter/map/reduce operations on a domain model</li>
             </ul>
-            <p></p>
-            <h2>Let's try it</h2>
-            <ul>
-              <li>Could you write quick domain model diff with us ;-)</li>
-            </ul>
+            <p class="fragment">Could you write a domain model diff tool now ?</p>
           </section>
           <section>
             <h2>Where we use it at LesFurets.com</h2>
-            <ul>
-              <li>Simplified UI binding by replacing JSON model by a Dictionary (80% less code)</li>
-              <li>Simplified client/server RPC</li>
+            <ul class="fragment">
+              <li>Simple UI binding by replacing JSON model by a Dictionary (80% less code)</li>
+              <li class="emptyline">Use JSON Dictionary for client/server RPC</li>
               <li>Batch and ETL with an email provider (90% less code)</li>
+              <li class="emptyline">Persistence in cassandra (from scratch with 200 lines of code for a whole model)</li>
               <li>Injecting user data in selenium (40% less code)</li>
-              <li>Persistence in cassandra (from scratch with 200 lines of code for a whole model)</li>
-              <li>Mocking our domain model in thousand of unit tests</li>
+              <li class="emptyline">Mocking our domain model in thousand of unit tests</li>
             </ul>
-            <p></p>
-            <h2>Everything in interative fashion during the 2 past years</h2>
+            <p class="fragment">... everything in iterative fashion during the past 2 years.</p>
           </section>
-        </section>
-
+          <section>
+            <h2>Future and ideas</h2>
+            <ul class="fragment">
+               <li>Push as OSS our Cassandra serialisation code</li>
+               <li>Push some Spark samples</li>
+               <li>JEP 276: Dynamic Linking of Language-Defined Object Models</li>
+            </ul>
+          </section>
+    	</section>
         <section>
           <section>
-            <h2>Questions / Answers</h2>
-          </section>
-          <section>
             <h2>Model-Map available on Github</h2>
+            <p></p>
             <ul>
               <li>http://github.com/lesfurets/model-map</li>
-              <li>Framework and example</li>
+              <li class="emptyline">Framework and examples</li>
+              <li>Apache Licence</li>
+              <li>Try it and contribute !</li>
             </ul>
           </section>
           <section>
@@ -484,6 +450,18 @@
           { src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
       });
+
+      // navigation with mouse click
+      /*
+      window.addEventListener("mousedown", handleClick, false);
+      window.addEventListener("contextmenu", function(e) { e.preventDefault(); }, false);
+
+      function handleClick(e) {
+        e.preventDefault();
+        if(e.button === 0) Reveal.next(); 
+        if(e.button === 2) Reveal.prev(); 
+      }
+      */
     </script>
   </body>
 </html>
