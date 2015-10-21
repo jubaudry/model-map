@@ -29,6 +29,10 @@
     <div class="reveal">
       <div class="slides">
 
+        <section class="opening">
+             <h1 class="opening-title">DomainModel.stream()</h1>
+        </section>
+
         <section>
           <img class="logo herve-francois" width="45%" src="png/lf_com_herve_francois.png">
           <h1>DomainModel.stream()</h1>
@@ -63,6 +67,9 @@
           </section>
           <section>
             <img width="70%" src="png/lf_com_mrh_journey.png">
+          </section>
+          <section>
+            <img width="70%" src="png/lf_com_car_price_sheet.png">
           </section>
           <section>
             <img width="50%" src="png/logo_lesfurets.png">
@@ -184,9 +191,35 @@
             <h2>... and transform it to a key-value model</h2>
             <img width="100%" src="png/org_modelmap_2.png">
           </section>
+          
+          <section data-transition="fade">
+            <h2>User model</h2>
+            <img width="100%" src="png/org_modelmap_user_mapping_1.png">
+          </section>
+          <section data-transition="fade">
+            <h2>User model</h2>
+            <img width="100%" src="png/org_modelmap_user_mapping_2.png">
+          </section>
           <section data-transition="fade">
             <h2>User model</h2>
             <img width="100%" src="png/org_modelmap_user_mapping_5.png">
+          </section>
+
+          <section data-transition="fade">
+            <h2>Account model</h2>
+            <img width="100%" src="png/org_modelmap_account_mapping_0.png">
+          </section>
+          <section data-transition="fade">
+            <h2>Account model</h2>
+            <img width="100%" src="png/org_modelmap_account_mapping_1.png">
+          </section>
+          <section data-transition="fade">
+            <h2>Account model</h2>
+            <img width="100%" src="png/org_modelmap_account_mapping_2.png">
+          </section>
+          <section data-transition="fade">
+            <h2>Account model</h2>
+            <img width="100%" src="png/org_modelmap_account_mapping_4.png">
           </section>
           <section data-transition="fade">
             <h2>Account model</h2>
@@ -237,57 +270,6 @@
             <h2>Step 4 : generate the key value model</h2>
             <img class="fragment" width="100%" src="png/org_modelmap_migration_step_4.png">
           </section>
-
-          <section>
-            <h2>User model</h2>
-          </section>
-          <section data-transition="fade">
-            <h2>User model</h2>
-            <img width="100%" src="png/org_modelmap_user_mapping_1.png">
-          </section>
-          <section data-transition="fade">
-            <h2>User model</h2>
-            <img width="100%" src="png/org_modelmap_user_mapping_2.png">
-          </section>
-          <section data-transition="fade">
-            <h2>User model</h2>
-            <img width="100%" src="png/org_modelmap_user_mapping_4.png">
-          </section>
-          <section data-transition="fade">
-            <h2>User model</h2>
-            <img width="100%" src="png/org_modelmap_user_mapping_5.png">
-          </section>
-          <section>
-            <h2>Account model</h2>
-          </section>
-          <section data-transition="fade">
-            <h2>Account model</h2>
-            <img width="100%" src="png/org_modelmap_account_mapping_0.png">
-          </section>
-          <section data-transition="fade">
-            <h2>Account model</h2>
-            <img width="100%" src="png/org_modelmap_account_mapping_1.png">
-          </section>
-          <section data-transition="fade">
-            <h2>Account model</h2>
-            <img width="100%" src="png/org_modelmap_account_mapping_2.png">
-          </section>
-          <section data-transition="fade">
-            <h2>Account model</h2>
-            <img width="100%" src="png/org_modelmap_account_mapping_3.png">
-          </section>
-          <section data-transition="fade">
-            <h2>Account model</h2>
-            <img width="100%" src="png/org_modelmap_account_mapping_4.png">
-          </section>
-          <section data-transition="fade">
-            <h2>Account model</h2>
-            <img width="100%" src="png/org_modelmap_account_mapping_5.png">
-          </section>
-          
-          <section>
-            <h2>Let's see the domain model &amp; the key-value model</h2>
-          </section>
         </section>
 
         <section>
@@ -297,12 +279,12 @@
           <section data-transition="fade">
             <h2>Account &amp; User ID</h2>
             <img width="100%" src="png/org_modelmap_userid_mapping.png">
-            <blockquote>g().getId()</blockquote>
+            <blockquote>sampleModel.getUser().getId()</blockquote>
           </section>
           <section data-transition="fade">
             <h2>Account &amp; User ID</h2>
             <img width="100%" src="png/org_modelmap_accountid_mapping.png">
-            <blockquote>getAccount().getId()</blockquote>
+            <blockquote>sampleModel.getAccount().getId()</blockquote>
           </section>
           <section>
             <h2>Many key for a single attribute</h2>
@@ -341,7 +323,7 @@
             <p></p> 
             <ul class="fragment">
               <li>Execution is done using a maven plugin</li>
-              <li>Annotated properties are processed using Java Reflection</li>
+              <li class="emptyline">Annotated properties are processed using Java Reflection</li>
               <li>Generate handwritten style code, easy to read</li>
               <li>Enable JIT optimisations by combining lambdas and enumerations</li>
               <li>Lightweight pattern, designed for performance</li>
@@ -415,7 +397,7 @@
           </section>
           <section>
             <h2>Thank You!</h2>
-            <img width="50%" src="png/logo_softshake.png">
+            <img width="80%" src="png/softshake_ch_2015.png">
           </section>
         </section>
       </div> 
@@ -452,7 +434,7 @@
       });
 
       // navigation with mouse click
-      /*
+      
       window.addEventListener("mousedown", handleClick, false);
       window.addEventListener("contextmenu", function(e) { e.preventDefault(); }, false);
 
@@ -461,7 +443,7 @@
         if(e.button === 0) Reveal.next(); 
         if(e.button === 2) Reveal.prev(); 
       }
-      */
+      
     </script>
   </body>
 </html>
